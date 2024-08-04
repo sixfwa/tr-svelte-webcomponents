@@ -1,0 +1,33 @@
+<!doctype html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://tr-svelte-webcomponents-storybook.vercel.app/primarybutton.js"></script>
+    <script src="https://tr-svelte-webcomponents-storybook.vercel.app/barchart.js"></script>
+    <script src="https://tr-svelte-webcomponents-storybook.vercel.app/linechart.js"></script>
+    <script src="https://tr-svelte-webcomponents-storybook.vercel.app/bubblechart.js"></script>
+  </head>
+  <body class="w-3/4 mx-auto">
+    <main class="flex flex-col">
+      <nav class="flex flex-row justify-between p-10 place-items-center">
+        <a href="/" class="text-2xl font-bold">Logo</a>
+        <div class="flex flex-row gap-3 text-lg place-items-center">
+          <a href="/">Find</a>
+          <a href="/">Statistics</a>
+          <a href="/">Learn More</a>
+          <!-- Web Component Button -->
+          <sv-primarybutton label="Login" size="medium"></sv-primarybutton>
+        </div>
+      </nav>
+
+      <!-- Graph Web Components -->
+      <section class="flex flex-col">
+        <sv-barchart></sv-barchart>
+        <sv-linechart></sv-linechart>
+        <sv-bubblechart></sv-bubblechart>
+      </section>
+    </main>
+  </body>
+</html>
