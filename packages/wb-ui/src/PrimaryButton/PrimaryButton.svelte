@@ -23,7 +23,7 @@
     width: fit-content;
     color: white;
     letter-spacing: 0.05rem;
-    background-color: #011940;
+    background-color: red;
   }
 
   .button:hover {
