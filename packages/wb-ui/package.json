@@ -5,7 +5,8 @@
   "type": "module",
   "scripts": {
     "build": "rollup -c --bundleConfigAsCjs",
-    "dev": "rollup -c -w"
+    "dev": "rollup -c -w",
+    "postbuild": "[ -d dist ] || mkdir dist"
   },
   "files": [
     "dist"
