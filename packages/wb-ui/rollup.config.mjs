@@ -39,4 +39,5 @@ export default [
   createConfig("BarChart"),
   createConfig("LineChart"),
   createConfig("BubbleChart"),
+  createConfig("List"),
 ];
