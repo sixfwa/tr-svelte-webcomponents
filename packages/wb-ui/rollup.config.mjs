@@ -4,13 +4,15 @@ import commonjs from "@rollup/plugin-commonjs";
 import terser from "@rollup/plugin-terser";
 import sveltePreprocess from "svelte-preprocess";
 import fs from "fs";
-import path from "path";
 import { createFilter } from "@rollup/pluginutils";
+import path from "path";
+import crypto from "crypto";
 
 const production = !process.env.ROLLUP_WATCH;
 
 function onlyChanged() {
-  const filter = createFilter("src/**/*.svelte");
+  // const filter = createFilter("src/**/*.svelte");
+  const fileHashes = new Map();
 
   return {
     name: "only-changed",
@@ -18,12 +20,17 @@ function onlyChanged() {
       this.lastBuildTime = Date.now();
     },
     load(id) {
-      if (filter(id)) {
-        const stats = fs.statSync(id);
-        if (stats.mtime < this.lastBuildTime) {
+      if (path.extname(id) === ".svelte") {
+        const content = fs.readFileSync(id, "utf-8");
+        const hash = crypto.createHash("md5").update(content).digest("hex");
+
+        if (fileHashes.has(id) && fileHashes.get(id) === hash) {
           return { code: "" };
         }
+
+        fileHashes.set(id, hash);
       }
+
       return null;
     },
   };
@@ -38,7 +45,7 @@ function createConfig(name) {
       name: name,
     },
     plugins: [
-      onlyChanged(),
+      // onlyChanged(),
       svelte({
         preprocess: sveltePreprocess(),
         compilerOptions: {
