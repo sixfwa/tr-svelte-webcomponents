@@ -23,7 +23,7 @@
     width: fit-content;
     color: white;
     letter-spacing: 0.05rem;
-    background-color: rgb(221, 161, 29);
+    background-color: rgb(163, 176, 227);
   }
 
   .button:hover {
