@@ -4,9 +4,9 @@
       "src": "package.json",
       "use": "@vercel/static-build",
       "config": {
-        "distDir": "dist"
+        "distDir": "dist",
+        "buildCommand": "npm run build:incremental"
       }
     }
-  ],
-  "cache": ["dist/**", ".rollup.cache/**"]
+  ]
 }

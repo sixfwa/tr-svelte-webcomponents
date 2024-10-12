@@ -45,7 +45,7 @@ function createConfig(name) {
       name: name,
     },
     plugins: [
-      // onlyChanged(),
+      onlyChanged(),
       svelte({
         preprocess: sveltePreprocess(),
         compilerOptions: {
