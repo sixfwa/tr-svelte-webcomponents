@@ -29,6 +29,10 @@ function createConfig(name) {
       commonjs(),
       production && terser(),
     ],
+    watch: {
+      clearScreen: false,
+      include: `src/${name}/**`,
+    },
   };
 }
 
